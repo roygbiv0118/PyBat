@@ -9,14 +9,10 @@ if __name__ == '__main__':
     c = conn.cursor()
     cursor = c.execute("SELECT * FROM dlt")
     conn.commit()
-    myr = ['1', '2', '3', '4', '5']
-    myb = ['6', '7']
+    myr = [1, 2, 3, 4, 5]
+    myb = [6, 7]
 
-    cnt = 0
     for row in cursor:
-        # if cnt>10:
-        #     break
-        # cnt += 1
         rb = []
         rb.append(row[1])
         rb.append(row[2])
