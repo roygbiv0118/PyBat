@@ -18,14 +18,14 @@ if __name__ == '__main__':
     conn = sqlite3.connect('lottery.db')
     c = conn.cursor()
     # c.execute("DELETE FROM dlt") 
-    response = requests.post(url.format('19092'), data, header)
+    response = requests.post(url.format('19090'), data, header)
     response.encoding = 'utf-8'
     bs = BeautifulSoup(response.text, 'lxml')
     span = bs.find('span', class_='iSelectBox')
     cnt = 0
     try:
         for ii in span.find_all('a'):
-            if ii.text<='19093':
+            if ii.text<='19094':
                 continue
             
             print(ii.text)
