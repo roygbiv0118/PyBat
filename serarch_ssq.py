@@ -15,7 +15,7 @@ if __name__ == '__main__':
 
     conn = sqlite3.connect('lottery.db')
     c = conn.cursor()
-    cursor = c.execute("SELECT * FROM ssq ORDER BY phase DESC")
+    cursor = c.execute("SELECT DISTINCT * FROM ssq ORDER BY phase DESC")
     conn.commit()
     myr = [1, 18, 19, 27, 29, 33]
     myb = [13]
