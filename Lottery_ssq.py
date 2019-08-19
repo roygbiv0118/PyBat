@@ -24,10 +24,16 @@ if __name__ == '__main__':
     span = bs.find('span', class_='iSelectBox')
     cnt = 0
     try:
+        sel_phase =c.execute("SELECT phase FROM ssq")
+        phases = []
+        for p in sel_phase:
+            phases.append(p[0])
         for ii in span.find_all('a'):
-            if ii.text<='19094':
+            if ii.text<='19096':
                 continue
 
+            if ii.text in phases:
+                continue
             print(ii.text)
             time.sleep(0.1)
             response = requests.post(url.format(ii.text), data, header)
