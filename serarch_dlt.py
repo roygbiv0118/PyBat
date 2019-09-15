@@ -21,6 +21,7 @@ if __name__ == '__main__':
     # myr = [5, 10, 14, 17, 31]
     # myb = [4, 5]
 
+    print(myr, myb)
     for row in cursor:
         rb = []
         rb.append(row[1])

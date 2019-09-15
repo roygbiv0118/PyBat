@@ -9,6 +9,7 @@ import matplotlib.pyplot as plt
 if __name__ == '__main__':
 
     val = [0]*33
+    val_b = [0]*16
 
     index = list(range(1, 33+1))
 
@@ -17,15 +18,10 @@ if __name__ == '__main__':
     c = conn.cursor()
     cursor = c.execute("SELECT DISTINCT * FROM ssq ORDER BY phase DESC")
     conn.commit()
-    myr = [1, 4, 18, 19, 24, 33]
+    myr = [1, 4, 18, 19, 26, 29]
     myb = [13]
 
-    # myr = [5, 10, 12, 18, 19, 27]
-    # myb = [6]
-    # myr = [2, 5, 14, 19, 21, 28]
-    # myb = [1]
-    # myr = [1, 4, 9, 25, 30, 31]
-    # myb = [5]
+
 
     print(myr, myb)
     for row in cursor:
@@ -46,7 +42,7 @@ if __name__ == '__main__':
         ###
         bb = []
         bb.append(row[7])
-        
+        val_b[row[7]-1] += 1
 
         cRed = 0
         cBlue = 0
@@ -60,10 +56,13 @@ if __name__ == '__main__':
             print(row[0], cRed, cBlue)
                 
     conn.close()
-
+    plt.subplot(2,1,1)
     plt.bar(index, val)
-    plt.xticks(index, ['1','2','3','4','5'])
+    plt.xticks(index, range(1,33+1))
     plt.xlabel('index')
     plt.ylabel('val')
+    plt.subplot(2,1,2)
+    plt.bar(range(1,16+1), val_b)
+    plt.xticks(range(1,16+1), range(1,16+1))
     plt.show()
 

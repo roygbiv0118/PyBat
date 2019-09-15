@@ -29,7 +29,7 @@ if __name__ == '__main__':
         for p in sel_phase:
             phases.append(p[0])
         for ii in span.find_all('a'):
-            if ii.text<='19094':
+            if ii.text<='19096':
                 continue
             
             if ii.text in phases:
