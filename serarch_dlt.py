@@ -40,7 +40,7 @@ if __name__ == '__main__':
         for b in myb:
             if b in bb:
                 cBlue+=1
-        if cRed >= 3:
+        if cRed >= 3 or (cRed == 2 and cBlue == 1) or cBlue >=2:
             print(row[0], cRed, cBlue)
                 
     conn.close()
