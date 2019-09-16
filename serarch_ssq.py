@@ -8,11 +8,10 @@ import matplotlib.pyplot as plt
 
 if __name__ == '__main__':
 
-    val = [0]*33
-    val_b = [0]*16
-
-    index = list(range(1, 33+1))
-
+    n_r = 33
+    n_b = 16
+    val_r = [0]*n_r
+    val_b = [0]*n_b
 
     conn = sqlite3.connect('lottery.db')
     c = conn.cursor()
@@ -32,12 +31,12 @@ if __name__ == '__main__':
         rb.append(row[4])
         rb.append(row[5])
         rb.append(row[6])
-        val[row[1]-1] += 1
-        val[row[2]-1] += 1
-        val[row[3]-1] += 1
-        val[row[4]-1] += 1
-        val[row[5]-1] += 1
-        val[row[6]-1] += 1
+        val_r[row[1]-1] += 1
+        val_r[row[2]-1] += 1
+        val_r[row[3]-1] += 1
+        val_r[row[4]-1] += 1
+        val_r[row[5]-1] += 1
+        val_r[row[6]-1] += 1
 
         ###
         bb = []
@@ -52,17 +51,15 @@ if __name__ == '__main__':
         for b in myb:
             if b in bb:
                 cBlue+=1
-        if cRed>3 or (cRed==3 and cBlue == 1):
+        if cRed>=4 or cBlue == 1:
             print(row[0], cRed, cBlue)
                 
     conn.close()
     plt.subplot(2,1,1)
-    plt.bar(index, val)
-    plt.xticks(index, range(1,33+1))
-    plt.xlabel('index')
-    plt.ylabel('val')
+    plt.bar(range(1, n_r+1), val_r)
+    plt.xticks(range(1, n_r+1), range(1,n_r+1))
     plt.subplot(2,1,2)
-    plt.bar(range(1,16+1), val_b)
-    plt.xticks(range(1,16+1), range(1,16+1))
+    plt.bar(range(1,n_b+1), val_b)
+    plt.xticks(range(1,n_b+1), range(1,n_b+1))
     plt.show()
 
