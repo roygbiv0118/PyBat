@@ -17,7 +17,7 @@ if __name__ == '__main__':
     c = conn.cursor()
     cursor = c.execute("SELECT * FROM dlt ORDER BY phase DESC")
     conn.commit()
-    myr = [1, 18, 19, 27, 29]
+    myr = [1, 18, 19, 27, 29] 
     myb = [2, 4, 8]
     # myr = [22, 24, 29, 31, 35]
     # myb = [4, 11]
@@ -29,7 +29,7 @@ if __name__ == '__main__':
     # myr = [5, 10, 14, 17, 31]
     # myb = [4, 5]
 
-    print(myr, myb)
+    print(myr, myb, '19123')
     for row in cursor:
         rb = []
         rb.append(row[1])

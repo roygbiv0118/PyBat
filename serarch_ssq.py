@@ -19,12 +19,10 @@ if __name__ == '__main__':
     conn.commit()
     myr = [1, 4, 18, 19, 26, 29]
     myb = [13]
-    # myr = [1, 9, 14, 24, 29, 32]
-    # myb = [10]
 
 
 
-    print(myr, myb)
+    print(myr, myb, '19122')
     for row in cursor:
         rb = []
         rb.append(row[1])
