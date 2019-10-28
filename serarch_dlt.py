@@ -15,22 +15,12 @@ if __name__ == '__main__':
 
     conn = sqlite3.connect('lottery.db')
     c = conn.cursor()
-    cursor = c.execute("SELECT * FROM dlt ORDER BY phase DESC")
+    cursor = c.execute("SELECT * FROM dlt ORDER BY phase ASC")
     conn.commit()
     myr = [1, 18, 19, 27, 29] 
     myb = [2, 4, 8]
-    # myr = [22, 24, 29, 31, 35]
-    # myb = [4, 11]
 
-    # myr = [2, 15, 17, 25, 31]
-    # myb = [3, 6]
-    # myr = [1, 7, 19, 29, 32]
-    # myb = [3, 8]
-    # myr = [5, 10, 14, 17, 31]
-    # myb = [4, 5]
-
-    print(myr, myb, '19131')
-    for row in cursor:
+    for n, row in enumerate(cursor):
         rb = []
         rb.append(row[1])
         rb.append(row[2])
@@ -59,6 +49,9 @@ if __name__ == '__main__':
                 cBlue+=1
         if cRed >= 3 or (cRed == 2 and cBlue == 1) or cBlue >=2:
             print(row[0], cRed, cBlue)
+
+    print(row, cRed, cBlue)
+    print(myr, myb, '19131')
                 
     conn.close()
     plt.subplot(2,1,1)

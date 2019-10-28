@@ -15,14 +15,11 @@ if __name__ == '__main__':
 
     conn = sqlite3.connect('lottery.db')
     c = conn.cursor()
-    cursor = c.execute("SELECT DISTINCT * FROM ssq ORDER BY phase DESC")
+    cursor = c.execute("SELECT DISTINCT * FROM ssq ORDER BY phase ASC")
     conn.commit()
     myr = [1, 4, 18, 19, 26, 29]
     myb = [13]
 
-
-
-    print(myr, myb, '19132')
     for row in cursor:
         rb = []
         rb.append(row[1])
@@ -53,6 +50,9 @@ if __name__ == '__main__':
                 cBlue+=1
         if cRed>=4 or cBlue == 1:
             print(row[0], cRed, cBlue)
+
+    print(row, cRed, cBlue)
+    print(myr, myb, '19132')
                 
     conn.close()
     plt.subplot(2,1,1)
