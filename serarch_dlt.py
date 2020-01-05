@@ -51,7 +51,7 @@ if __name__ == '__main__':
             print(row[0], cRed, cBlue)
 
     print(row, cRed, cBlue)
-    print(myr, myb, '19140')
+    print(myr, myb, '20010')
                 
     conn.close()
     plt.subplot(2,1,1)
