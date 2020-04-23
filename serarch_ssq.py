@@ -17,7 +17,7 @@ if __name__ == '__main__':
     c = conn.cursor()
     cursor = c.execute("SELECT DISTINCT * FROM ssq ORDER BY phase ASC")
     conn.commit()
-    myr = [1, 4, 18, 19, 26, 29]
+    myr = [1, 14, 18, 19, 26, 29]
     myb = [13]
 
     for row in cursor:
